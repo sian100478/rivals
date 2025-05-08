@@ -1,0 +1,22 @@
+if getgenv().duckLoaderLoaded == true then return end
+getgenv().duckLoaderLoaded = true
+
+-- TweenService 클론
+local TweenService = cloneref(game:GetService("TweenService"))
+
+-- 허용된 PlaceId 확인 함수
+local function isAllowedPlace()
+    return game.PlaceId == 17625359962
+        or game.PlaceId == 71874690745115
+        or game.PlaceId == 117398147513099
+end
+
+-- 로더 실행 함수
+local function runLoader()
+    if isAllowedPlace() then
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e35dfe3721a4a57029cc101d8ec43cbe.lua"))()
+    end
+end
+
+-- 즉시 실행
+runLoader()
